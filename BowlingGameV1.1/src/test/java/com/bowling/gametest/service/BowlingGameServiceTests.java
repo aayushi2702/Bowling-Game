@@ -42,4 +42,17 @@ public class BowlingGameServiceTests {
         assertThat(bowlingGameService.getGameScore(new int[] {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 5,5,3}))
                 .isEqualTo(31);
     }
+    
+    @Test
+    public void getGameScore_WithStrikeAtStartAndPinsDownForRestOFTheRollsAreOneTest() {
+        assertThat(bowlingGameService.getGameScore(new int[] {10, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1}))
+                .isEqualTo(30);
+    }
+    
+
+    @Test
+    public void getGameScore_WithAllFramesScoringStrikeTest() {
+        assertThat(bowlingGameService.getGameScore(new int[] {10, 10, 10, 10, 10, 10, 10, 10, 10, 10,10,10}))
+                .isEqualTo(300);
+    }
 }
