@@ -6,19 +6,25 @@ import org.springframework.stereotype.Service;
 public class BowlingGameService {
 
 	static final int ZERO = 0;
-	
-	public int getGameScore(int[] rolls) {
+	private int[] rolls;
+
+	public int getGameScore(int[] newGame) {
+		rolls = newGame;
 		int score = 0;
-			int roll = 0;
-	        for(int cursor = 0; cursor < 20; cursor++) {
-	            if(rolls[roll] + rolls[roll+1] == 10) {
-	                score = 10 + rolls[roll+2];
-	                roll+=2;
-	                cursor++;
-	            } else {
-	                score += rolls[roll];
-	            }
+		int roll = 0;
+		for (int frame = 0; frame < 10; frame++) {
+			if (isSpare(roll)) {
+				score = 10 + rolls[roll + 2];
+				roll += 2;
+			} else {
+				score += rolls[roll] + rolls[roll + 1];
+				roll += 2;
+			}
 		}
 		return score;
+	}
+
+	private boolean isSpare(int roll) {
+		return rolls[roll] + rolls[roll + 1] == 10;
 	}
 }
