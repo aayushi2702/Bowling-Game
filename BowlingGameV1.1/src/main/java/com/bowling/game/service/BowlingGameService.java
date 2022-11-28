@@ -7,7 +7,7 @@ public class BowlingGameService {
 	
 	static final int ZERO = 0;
 	
-	public int getGameScore() {
+	public int getGameScore(int[] rolls) {
 		return ZERO;
 	}
 }

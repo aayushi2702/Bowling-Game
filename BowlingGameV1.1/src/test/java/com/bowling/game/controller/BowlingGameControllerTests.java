@@ -27,7 +27,8 @@ public class BowlingGameControllerTests {
 	@Test
 	public void gameAPITest() throws Exception {
 
-		when(bowlingGameService.getGameScore()).thenReturn(0);
+		when(bowlingGameService.getGameScore(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }))
+				.thenReturn(0);
 		mockMvc.perform(get("/getScore?game=0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0"))
 				.andExpect(status().isOk());
 	}
