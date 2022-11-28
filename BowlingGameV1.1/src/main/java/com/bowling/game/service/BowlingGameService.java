@@ -8,6 +8,10 @@ public class BowlingGameService {
 	static final int ZERO = 0;
 	
 	public int getGameScore(int[] rolls) {
-		return ZERO;
+		int score = 0;
+		for (int roll : rolls) {
+			score += roll;
+		}
+		return score;
 	}
 }

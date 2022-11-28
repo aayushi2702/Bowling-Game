@@ -17,4 +17,11 @@ public class BowlingGameServiceTests {
 		assertThat(bowlingGameService
 				.getGameScore(new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 })).isZero();
 	}
+	
+    @Test
+    public void getGameScore_WithEachRollPinsDownAre1Test() {
+    	BowlingGameService bowlingGameService = new BowlingGameService();
+        assertThat(bowlingGameService.getGameScore(new int[] {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1}))
+                .isEqualTo(20);
+    }
 }
