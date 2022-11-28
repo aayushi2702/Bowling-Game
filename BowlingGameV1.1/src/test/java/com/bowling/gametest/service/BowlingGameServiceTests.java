@@ -36,4 +36,10 @@ public class BowlingGameServiceTests {
         assertThat(bowlingGameService.getGameScore(new int[] {5,5, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1}))
                 .isEqualTo(29);
     }
+    
+    @Test
+    public void getGameScore_WithSpareAtEndFollowedByThreeAndPinsDownForRestOFTheRollsAreOneTest() {
+        assertThat(bowlingGameService.getGameScore(new int[] {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 5,5,3}))
+                .isEqualTo(31);
+    }
 }

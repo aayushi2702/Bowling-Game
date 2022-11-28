@@ -14,7 +14,7 @@ public class BowlingGameService {
 		int roll = 0;
 		for (int frame = 0; frame < 10; frame++) {
 			if (isSpare(roll)) {
-				score = 10 + rolls[roll + 2];
+				score += 10 + rolls[roll + 2];
 				roll += 2;
 			} else {
 				score += rolls[roll] + rolls[roll + 1];
