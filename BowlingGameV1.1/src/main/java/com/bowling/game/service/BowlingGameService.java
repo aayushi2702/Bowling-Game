@@ -13,10 +13,10 @@ public class BowlingGameService {
 		int score = 0;
 		int roll = 0;
 		for (int frame = 0; frame < 10; frame++) {
-			if(isStrike(rolls[roll])) {
+			if(Strike.isStrike(rolls[roll])) {
                 score += 10 + rolls[roll+1] + rolls[roll+2];
                 roll++;
-            } else if(isSpare(roll)) {
+            } else if(Spare.isSpare(roll)) {
                 score += 10 + rolls[roll+2];
                 roll += 2;
             } else {
@@ -26,13 +26,5 @@ public class BowlingGameService {
 		}
 		return score;
 	}
-
-	private boolean isSpare(int roll) {
-		return rolls[roll] + rolls[roll + 1] == 10;
-	}
-	
-	private boolean isStrike(int roll) {
-        return roll == 10;
-    }
 
 }
